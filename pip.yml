@@ -1,0 +1,12 @@
+---
+- name: install
+  yum:
+    state: latest
+    name: python-pip
+- name: pip
+  pip:
+    name:
+      - docker
+      - requests
+    state: latest
+    extra_args: --user
