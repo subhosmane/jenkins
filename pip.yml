@@ -8,5 +8,7 @@
     name:
       - docker
       - requests
+      - boto
+      - boto3
     state: latest
     extra_args: --user
