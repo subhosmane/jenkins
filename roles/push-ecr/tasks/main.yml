@@ -1,3 +1,4 @@
+- include_vars: vars/main.yml
 - include_tasks: pip.yml
 
 - name: build image from cloned repo
@@ -9,12 +10,11 @@
     source: build
 
 - name: Log into ECR if required.
-  shell: "$(aws ecr get-login --no-include-email --region us-east-1)"
+  shell: "$(aws ecr get-login --no-include-email --region {{ aws_region }})"
 
 - name: Create ecr_repo if not exists
   ecs_ecr:
     name: "{{ namespace }}"
     state: present
-    region: "{{ aws_region }}""
-
+    region: "{{ aws_region }}"
     #policy: "{{ lookup('template', 'ecr_policy.json.j2') }}"
