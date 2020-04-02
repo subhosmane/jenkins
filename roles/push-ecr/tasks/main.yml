@@ -1,7 +1,7 @@
 - include_tasks: pip.yml
 
 - name: build image from cloned repo
-    docker_image:
+  docker_image:
     name: jenkins
     build:
         pull: true
