@@ -9,7 +9,7 @@
     source: build
 
 - name: Log into ECR if required.
-  shell: "$(aws ecr get-login --no-include-email --region {{ aws_region }})"
+  shell: "$(aws ecr get-login --no-include-email --region us-east-1)"
 
 - name: Create ecr_repo if not exists
   ecs_ecr:
