@@ -1,0 +1,9 @@
+- include_tasks: pip.yml
+
+- name: build image from cloned repo
+    docker_image:
+    name: jenkins
+    build:
+        pull: true
+        path: /home/ubuntu/jenkins-docker/
+    source: build
