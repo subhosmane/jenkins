@@ -3,7 +3,9 @@
   become: yes
   gather_facts: false
   roles:
-    - push-ecr
+    - role: push-ecr
+
+  
 
     
     
