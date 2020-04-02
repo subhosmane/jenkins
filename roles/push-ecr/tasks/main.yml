@@ -15,4 +15,6 @@
   ecs_ecr:
     name: "{{ namespace }}"
     state: present
+    region: {{ aws_region }}
+
     #policy: "{{ lookup('template', 'ecr_policy.json.j2') }}"
