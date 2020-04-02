@@ -14,17 +14,17 @@
 
 - name: Create ecr_repo if not exists
   ecs_ecr:
-    name: "{{ namespace }}"
+    name: "{{ namespace }}/{{ ecr_image_name }}"
     state: present
     region: "{{ aws_region }}"
     #policy: "{{ lookup('template', 'ecr_policy.json.j2') }}"
 
 - name: Tag docker image with ECR_URL
-  command: "docker tag {{ ecr_image_name }}:{{ ecr_image_tags.0 }} {{ ecr_url }}/{{ ecr_image_name }}:{{ image_tag }}"
+  command: "docker tag {{ ecr_image_name }}:{{ ecr_image_tags }} {{ ecr_url }}/{{ namespace }}/{{ ecr_image_name }}:{{ ecr_image_tags }}"
   changed_when: true
 
 - name: Push image to ECR.
-  command: "docker push {{ ecr_url }}/{{ namespace }}/{{ ecr_image_name }}:{{ image_tag }}"
+  command: "docker push {{ ecr_url }}/{{ namespace }}/{{ ecr_image_name }}:{{ ecr_image_tags }}"
   register: push_result
   changed_when: true
   until: push_result is success

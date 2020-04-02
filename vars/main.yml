@@ -5,5 +5,5 @@ ecr_owner: ""
 #image_name: "jenkins"
 namespace: "bootstrap"
 ecr_url: "{{ aws_account_id }}.dkr.ecr.{{ aws_region }}.amazonaws.com"
-ecr_image_tags: ['latest']
+ecr_image_tags: 'latest'
 ecr_image_name: "jenkins"
