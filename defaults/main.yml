@@ -1,0 +1,8 @@
+# defaults file for aws_ecr
+aws_region: "us-east-1"
+aws_account_id: "430803130472"
+ecr_owner: ""
+image_name: "jenkins"
+namespace: "bootstrap"
+ecr_url: "{{ aws_account_id }}.dkr.ecr.{{ aws_region }}.amazonaws.com"
+ecr_image_tags: ['latest']
